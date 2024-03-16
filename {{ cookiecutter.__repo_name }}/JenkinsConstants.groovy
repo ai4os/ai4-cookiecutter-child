@@ -8,7 +8,7 @@ import groovy.transform.Field
 @Field
 def dockerfile = 'Dockerfile'
 
-{% if (curl --silent -f --head -1L https://hub.docker.com/v2/repositories/ai4oshub/cookiecutter.docker_baseimage/tags/gpu/ > /dev/null)  %}
+{% if ('curl --silent -f --head -1L https://hub.docker.com/v2/repositories/ai4oshub/cookiecutter.docker_baseimage/tags/gpu/ > /dev/null')  %}
 @Field
 def base_cpu_tag = '{{ cookiecutter.__baseimage_tag }}'
 
