@@ -12,14 +12,14 @@
 ARG tag={{ cookiecutter.__baseimage_cpu_tag }}
 
 # Base image, e.g. tensorflow/tensorflow:2.9.1
-FROM deephdc/{{ cookiecutter.docker_baseimage }}:${tag}
+FROM ai4oshub/{{ cookiecutter.docker_baseimage }}:${tag}
 
 LABEL maintainer='{{ cookiecutter.author_name }}'
 LABEL version='{{ cookiecutter.app_version }}'
 # {{ cookiecutter.description.replace('\'', '') }}
 
 # Download new model weights and remove old ones
-# You can use the following as "reference" - https://github.com/deephdc/DEEP-OC-phytoplankton-classification-tf/blob/master/Dockerfile
+# You can use the following as "reference" - https://github.com/ai4os-hub/ai4os-image-classification-tf/blob/master/Dockerfile
 ###############
 ### FILL ME ###
 ###############

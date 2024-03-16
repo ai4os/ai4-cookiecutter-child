@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2018 - 2023 Karlsruhe Institute of Technology - Steinbuch Centre for Computing
+# Copyright (c) 2018 - 2023 Karlsruhe Institute of Technology - Scientific Computing Center
 # This code is distributed under the MIT License
 # Please, see the LICENSE file
 
@@ -10,7 +10,7 @@
     1. Check that {{ cookiecutter.git_base_url}} is a valid URL
     2. Check that {{ cookiecutter.__repo_name }}:
       a. is not too short (has to be more than one character)
-      b. has characters valid for python
+      b. has characters valid for python, dash, and/or underscore
 """
 
 import re
@@ -39,11 +39,12 @@ if (not check_url(git_base_url)):
     error_messages.append(message)
 
 # check {{ cookiecutter.__repo_name }}
-MODULE_REGEX = r'^[_a-zA-Z][_a-zA-Z0-9]+$'
+MODULE_REGEX = r'^[a-zA-Z][a-zA-Z0-9-_]+$'
 repo_name = '{{ cookiecutter.__repo_name }}'
 if (not re.match(MODULE_REGEX, repo_name) or
     len(repo_name) < 2):
-    message = ("'{}' is not a valid Python module name! ".format(repo_name) +
+    message = ("'{}' is not a valid module name! ".format(repo_name) +
+               "Use characters, numbers, dashes and/or underscores!" +
                "Please, check the 'project_name' input")
     print("[ERROR]: " + message)
     error = True

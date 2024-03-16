@@ -1,24 +1,22 @@
-<div align="center">
-<img src="https://marketplace.deep-hybrid-datacloud.eu/images/logo-deep.png" alt="logo" width="300"/>
-</div>
+# {{cookiecutter.project_name}}
+[![Build Status](https://jenkins.services.ai4os.eu/buildStatus/icon?job=AI4OS-hub/{{ cookiecutter.__repo_name }}/main)](https://jenkins.services.ai4os.eu/job/AI4OS-hub/job/{{ cookiecutter.__repo_name }}/job/main/)
 
-# DEEP-OC-{{ cookiecutter.__repo_name }}
-[![Build Status](https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/{{ cookiecutter.__deephdc_docker }}/master)](https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/{{ cookiecutter.__deephdc_docker }}/job/master)
+{{cookiecutter.description}}
 
-This is a container that will run the [{{ cookiecutter.__repo_name }}]({{ cookiecutter.git_base_url }}/{{ cookiecutter.__repo_name }}) application leveraging the DEEP as a Service API component ([DEEPaaS API V2](https://github.com/indigo-dc/DEEPaaS)).
+This is a container that will run the {{ cookiecutter.__repo_name }} application leveraging the DEEP as a Service API component ([DEEPaaS API](https://github.com/ai4os/DEEPaaS)). The application is based on **ai4oshub/{{ cookiecutter.docker_baseimage }}** Module.
 
     
 ## Running the container
 
 ### Directly from Docker Hub
 
-To run the Docker container directly from Docker Hub and start using the API simply run the following command:
+To run the Docker container directly from Docker Hub and start using the API, simply run the following command:
 
 ```bash
-$ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 deephdc/{{ cookiecutter.__deephdc_docker.lower() }}
+$ docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 ai4oshub/{{ cookiecutter.__repo_name.lower() }}
 ```
 
-This command will pull the Docker container from the Docker Hub [deephdc](https://hub.docker.com/u/deephdc/) repository and start the default command (`deepaas-run --listen-ip=0.0.0.0`).
+This command will pull the Docker container from the Docker Hub [ai4oshub](https://hub.docker.com/u/ai4oshub/) repository and start the default command (`deepaas-run --listen-ip=0.0.0.0`).
 
 **N.B.** For either CPU-based or GPU-based images you can also use [udocker](https://github.com/indigo-dc/udocker).
 
@@ -26,10 +24,10 @@ This command will pull the Docker container from the Docker Hub [deephdc](https:
 
 If you want to build the container directly in your machine (because you want to modify the `Dockerfile` for instance) follow the following instructions:
 ```bash
-git clone {{ cookiecutter.git_base_url }}/DEEP-OC-{{ cookiecutter.__repo_name }}
-cd DEEP-OC-{{ cookiecutter.__repo_name }}
-docker build -t deephdc/{{ cookiecutter.__deephdc_docker.lower() }} .
-docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 deephdc/{{ cookiecutter.__deephdc_docker.lower() }}
+git clone {{ cookiecutter.git_base_url }}/{{ cookiecutter.__repo_name }}
+cd {{ cookiecutter.__repo_name }}
+docker build -t ai4oshub/{{ cookiecutter.__repo_name.lower() }} .
+docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 ai4oshub/{{ cookiecutter.__repo_name.lower() }}
 ```
 
 These three steps will download the repository from GitHub and will build the Docker container locally on your machine. You can inspect and modify the `Dockerfile` in order to check what is going on. For instance, you can pass the `--debug=True` flag to the `deepaas-run` command, in order to enable the debug mode.
