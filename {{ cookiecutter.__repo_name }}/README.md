@@ -3,7 +3,7 @@
 
 {{cookiecutter.description}}
 
-This is a container that will run the {{ cookiecutter.__repo_name }} application leveraging the DEEP as a Service API component ([DEEPaaS API](https://github.com/ai4os/DEEPaaS)). The application is based on **ai4oshub/{{ cookiecutter.docker_baseimage }}** Module.
+This is a container that will run the {{ cookiecutter.__repo_name }} application leveraging the DEEP as a Service API component ([DEEPaaS API](https://github.com/ai4os/DEEPaaS)). The application is based on **ai4oshub/{{ cookiecutter.docker_baseimage }}** module.
 
     
 ## Running the container
