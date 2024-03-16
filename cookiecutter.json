@@ -5,7 +5,7 @@
     "author_name": "",
     "author_email": "",
     "description": "",
-    "repo_version": "0.0.1",
+    "app_version": "0.0.1",
     "open_source_license": ["MIT", "Apache 2.0", "BSD-3-Clause", "No license file"],
 
     "__repo_name": "{{ ' '.join(cookiecutter.project_name.split()).lower().replace(' ', '-') }}",
