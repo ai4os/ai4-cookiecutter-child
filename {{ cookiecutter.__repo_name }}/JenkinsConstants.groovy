@@ -8,21 +8,3 @@ import groovy.transform.Field
 @Field
 def dockerfile = 'Dockerfile'
 
-{% if cmd.run('curl --silent -f --head -1L https://hub.docker.com/v2/repositories/ai4oshub/cookiecutter.docker_baseimage/tags/gpu/ > /dev/null')  %}
-@Field
-def base_cpu_tag = '{{ cookiecutter.__baseimage_tag }}'
-
-@Field
-def base_gpu_tag = 'gpu'
-
-{% else %}
-// If <docker_baseimage> has separate CPU and GPU versions
-// uncomment following lines and define both values
-//@Field
-//def base_cpu_tag = '{{ cookiecutter.__baseimage_tag }}'
-//
-//@Field
-//def base_gpu_tag = '{{ cookiecutter.__baseimage_gpu_tag }}'
-{% endif %}
-
-return this;

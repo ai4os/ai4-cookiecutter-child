@@ -13,6 +13,7 @@
 """
 import os
 import re
+import requests
 import shutil
 import subprocess as subp
 import sys
@@ -31,6 +32,46 @@ if not re.match(REPO_REGEX, repo_name):
 
     # exits with status 1 to indicate failure
     sys.exit(1)
+
+def update_jenkinsconstants(repo):
+    """Function
+       Checks for 'gpu' tag and updates JenkinsConstants.groovy
+    """
+    
+    baseimage = '{{ cookiecutter.__docker_baseimage }}'
+    baseimage = baseimage.rstrip('/')
+    baseimage_tag = '{{ cookiecutter.__baseimage_tag }}'
+
+    url = ("https://hub.docker.com/v2/repositories/ai4oshub/" +
+           baseimage + "/tags/gpu/")
+
+    # check if tag "gpu" exists
+    r = requests.get(url)
+    if r.status_code == 200:
+        text=F"""
+@Field
+def base_cpu_tag = '{baseimage_tag}'
+
+@Field
+def base_gpu_tag = 'gpu'
+
+return this;
+"""
+    else:
+        text=F"""
+// If <docker_baseimage> has separate CPU and GPU versions
+// uncomment following lines and define both values
+//@Field
+//def base_cpu_tag = '{baseimage_tag}'
+//
+//@Field
+//def base_gpu_tag = 'gpu'
+
+return this;
+"""
+
+    with open("../" + repo + "/JenkinsConstants.groovy", "a") as jcfile:
+        jcfile.write(text)
 
 def git_ini(repo):
     """ Function
@@ -70,8 +111,10 @@ def git_ini(repo):
     else:
         return gitrepo
 
-
 try:
+    # update JenkinsConstatns.groovy
+    update_jenkinsconstants(repo_name.rstrip('/'))
+
     # initialize git repository
     git_user_app = git_ini(repo_name)
 
