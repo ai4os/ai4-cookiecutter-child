@@ -38,7 +38,7 @@ def update_jenkinsconstants(repo):
        Checks for 'gpu' tag and updates JenkinsConstants.groovy
     """
     
-    baseimage = '{{ cookiecutter.__docker_baseimage }}'
+    baseimage = '{{ cookiecutter.docker_baseimage }}'
     baseimage = baseimage.rstrip('/')
     baseimage_tag = '{{ cookiecutter.__baseimage_tag }}'
 
