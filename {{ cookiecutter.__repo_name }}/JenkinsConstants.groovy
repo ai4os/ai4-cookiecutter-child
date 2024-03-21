@@ -8,3 +8,4 @@ import groovy.transform.Field
 @Field
 def dockerfile = 'Dockerfile'
 
+// base_cpu_tag or base_gpu_tag are added by the template (post_gen_project.py), depending on the AI4OS hub dockerbase image

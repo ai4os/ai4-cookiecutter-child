@@ -47,7 +47,9 @@ Once the container is up and running, browse to http://0.0.0.0:5000/ui to get th
 │
 ├─ LICENSE                <- License file
 │
-├─ README.md              <- README for developers and users.
+├─ README.md              <- README for developers and users
+│
+├── .sqa/                 <- CI/CD configuration files
 │
 └─ metadata.json          <- Defines information propagated to the AI4OS Hub
 ```

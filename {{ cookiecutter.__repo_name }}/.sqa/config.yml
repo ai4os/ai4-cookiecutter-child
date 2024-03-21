@@ -1,0 +1,13 @@
+# .sqa/config.yml - jenkins-pipeline-library configuration file
+sqa_criteria:
+  qc_style:
+    repos:
+      {{ cookiecutter.__repo_name }}:
+        container: thisrepo-testing
+        command:
+          - sh -c 'pip3 install ai4-metadata-validator && ai4-metadata-validator metadata.json'
+
+environment:
+  LANG: C.UTF-8
+
+timeout: 600
