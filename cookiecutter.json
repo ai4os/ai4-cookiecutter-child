@@ -10,7 +10,7 @@
 
     "__repo_name": "{{ ' '.join(cookiecutter.project_name.split()).lower().replace(' ', '-') }}",
     "__baseimage_tag": "latest",
-    "__ai4_template": "ai4-template-child/2.0.1",
+    "__ai4_template": "ai4-template-child/2.1.0",
 
     "__prompts__": {
        "docker_baseimage": "docker_baseimage - Which AI4OS module do you wish to inherit from? \n        Check available modules at https://dashboard.cloud.ai4eosc.eu/ and\n        correspodning Docker images at https://hub.docker.com/u/ai4oshub",
