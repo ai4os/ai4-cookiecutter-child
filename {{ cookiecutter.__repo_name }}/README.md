@@ -51,11 +51,13 @@ Once the container is up and running, browse to http://0.0.0.0:5000/ui to get th
 │
 ├── .sqa/                 <- CI/CD configuration files
 │
-└─ metadata.json          <- Defines information propagated to the AI4OS Hub
+└─ ai4-metadata.yml       <- Defines information propagated to the AI4OS Hub
 ```
 
-You can validate the `metadata.json` before making a git push using:
+You can validate the `ai4-metadata.yml` before making a git push using:
 ```shell
-pip install ai4-metadata-validator
-ai4-metadata-validator metadata.json
+pip install yq
+pip install ai4-metadata
+yq -e -j ai4-metadata.yml >ai4-metadata.json
+ai4-metadata validate ai4-metadata.json
 ```
