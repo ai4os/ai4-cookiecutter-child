@@ -10,6 +10,7 @@
 
     "__repo_name": "{{ ' '.join(cookiecutter.project_name.split()).lower().replace(' ', '-') }}",
     "__baseimage_tag": "latest",
+    "__app_name": "{{ cookiecutter.__repo_name.replace('-','_') }}",
     "__ai4_template": "ai4-template-child/2.1.1",
 
     "__prompts__": {
