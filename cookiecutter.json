@@ -1,6 +1,5 @@
 {
     "docker_baseimage": "ai4os-image-classification-tf",
-    "git_base_url": "https://github.com/ai4os-hub",
     "project_name": "",
     "author_name": "",
     "author_email": "",
@@ -15,7 +14,6 @@
 
     "__prompts__": {
        "docker_baseimage": "docker_baseimage - Which AI4OS module do you wish to inherit from? \n        Check available modules at https://dashboard.cloud.ai4eosc.eu/ and\n        correspodning Docker images at https://hub.docker.com/u/ai4oshub",
-       "git_base_url": "git_base_url - Remote URL to host your new repository (git), e.g. https://github.com/ai4os-hub (i.e. at github)",
        "project_name": "project_name - Short name of your project (max 4 words)",
        "author_name": "author_name - Author name(s) (and/or your organization/company/team). If many, separate by comma",
        "author_email": "author_email - E-Mail(s) of main author(s). If many, separate by comma",
