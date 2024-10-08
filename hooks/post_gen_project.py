@@ -77,7 +77,7 @@ def git_ini(repo):
     """ Function
         Initializes Git repository
     """
-    gitrepo = ('{{ cookiecutter.git_base_url }}'.rstrip('/')
+    gitrepo = ('{{ cookiecutter.__git_base_url }}'.rstrip('/')
                 + "/" +  repo + '.git')
     try:
         os.chdir("../" + repo)
