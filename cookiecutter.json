@@ -7,6 +7,7 @@
     "app_version": "0.0.1",
     "open_source_license": ["MIT", "Apache 2.0", "BSD-3-Clause", "AGPL-3.0-only", "No license file"],
 
+    "__git_base_url": "https://github.com/ai4os-hub",
     "__repo_name": "{{ ' '.join(cookiecutter.project_name.split()).lower().replace(' ', '-') }}",
     "__baseimage_tag": "latest",
     "__app_name": "{{ cookiecutter.__repo_name.replace('-','_') }}",

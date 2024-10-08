@@ -7,7 +7,8 @@
 
 """
     Pre-hook script
-    1. Check that {{ cookiecutter.__repo_name }}:
+    1. Check that {{ cookiecutter.__git_base_url}} is a valid URL
+    2. Check that {{ cookiecutter.__repo_name }}:
       a. is not too short (has to be more than one character)
       b. has characters valid for python, dash, and/or underscore
 """
@@ -20,6 +21,7 @@ from urllib.parse import urlparse
 error = False
 error_messages = []
 
+# check {{ cookiecutter.__git_base_url}}
 def check_url(url):
     """Function to check URL"""
     try:
@@ -28,8 +30,13 @@ def check_url(url):
     except:
         return False
 
-git_base_url = "https://github.com/ai4os-hub"
-
+__git_base_url = '{{ cookiecutter.__git_base_url}}'
+if (not check_url(__git_base_url)):
+    message = ("'{}' is not a valid URL! ".format(__git_base_url) +
+               "Please, check the '__git_base_url' input")
+    print("[ERROR]: " + message)
+    error = True
+    error_messages.append(message)
 
 # check {{ cookiecutter.__repo_name }}
 MODULE_REGEX = r'^[a-zA-Z][a-zA-Z0-9-_]+$'

@@ -24,7 +24,7 @@ This command will pull the Docker container from the Docker Hub [ai4oshub](https
 
 If you want to build the container directly in your machine (because you want to modify the `Dockerfile` for instance) follow the following instructions:
 ```bash
-git clone https://github.com/ai4os-hub/{{ cookiecutter.__repo_name }}
+git clone {{ cookiecutter.__git_base_url }}/{{ cookiecutter.__repo_name }}
 cd {{ cookiecutter.__repo_name }}
 docker build -t ai4oshub/{{ cookiecutter.__repo_name.lower() }} .
 docker run -ti -p 5000:5000 -p 6006:6006 -p 8888:8888 ai4oshub/{{ cookiecutter.__repo_name.lower() }}
